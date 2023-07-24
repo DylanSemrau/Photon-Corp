@@ -8,6 +8,7 @@ field_name_3 = 'name'
 output_file = 'en-us.cfg'
 
 with open(output_file, 'w') as out:
+    out.write('Localization\n{\n\ten-us\n\t{\n')
     for dirpath, dirnames, filenames in os.walk(folder_path):
         folder_name = os.path.basename(dirpath)
         for filename in filenames:
@@ -31,5 +32,6 @@ with open(output_file, 'w') as out:
                             found_field_3 = True
                         if found_field_1 and found_field_2 and found_field_3:
                             break
+    out.write('\t}\n}')
 
 
